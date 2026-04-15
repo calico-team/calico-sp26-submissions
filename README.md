@@ -8,12 +8,12 @@ This repository contains all contestant submissions from CALICO Spring 2026.
 submissions/
   <team_id> - <team_name>/
     <problem_name>/
-      <submission_id>_<submission_time>.<ext>
+      <submission_id>_<problem_name>_<submission_time>.<ext>
 ```
 
 - **Team directories** — Each top-level directory is named `<team_id> - <team_name>` (517 teams total).
 - **Problem directories** — Within each team, subdirectories are named by problem (e.g. `laser_main`, `grid_bonus`).
-- **Source files** — Individual submissions, named using their submission ID and submission time. Time is given in minutes from contest start.
+- **Source files** — Individual submissions, named using their submission ID, problem name, and submission time. Time is given in minutes from contest start.
 
 ## Problems
 
