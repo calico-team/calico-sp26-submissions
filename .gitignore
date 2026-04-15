@@ -26,4 +26,4 @@ rename_teams.py
 registrationid-teamid.csv
 registrationid-teamname.csv
 scoreboard.html
-reorganize.py
+scoreboard_public.html
