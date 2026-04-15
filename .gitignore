@@ -27,3 +27,5 @@ registrationid-teamid.csv
 registrationid-teamname.csv
 scoreboard.html
 scoreboard_public.html
+all_submissions.json
+rename_with_time.py
