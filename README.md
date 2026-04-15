@@ -558,7 +558,3 @@ submissions/
 | - | wlx | [4627 - wlx](submissions/4627%20-%20wlx) |
 | - | wolf | [3044 - wolf](submissions/3044%20-%20wolf) |
 | - | 萌鸡小队 | [4645 - 萌鸡小队](submissions/4645%20-%20%E8%90%8C%E9%B8%A1%E5%B0%8F%E9%98%9F) |
-
-## License
-
-These submissions are the work of their respective authors.
