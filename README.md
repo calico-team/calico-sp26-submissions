@@ -13,7 +13,7 @@ submissions/
 
 - **Team directories** — Each top-level directory is named `<team_id> - <team_name>` (517 teams total).
 - **Problem directories** — Within each team, subdirectories are named by problem (e.g. `laser_main`, `grid_bonus`).
-- **Source files** — Individual submissions, named using their submission ID and submission time.
+- **Source files** — Individual submissions, named using their submission ID and submission time. Time is in the format hour_minute_second.millisecond.
 
 ## Problems
 
