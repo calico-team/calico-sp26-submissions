@@ -25,3 +25,5 @@ __pycache__/
 rename_teams.py
 registrationid-teamid.csv
 registrationid-teamname.csv
+scoreboard.html
+reorganize.py
