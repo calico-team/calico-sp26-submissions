@@ -1,0 +1,133 @@
+//#pragma GCC target ("avx2,tune=native")
+#pragma GCC optimize ("Ofast")
+#pragma GCC optimize ("unroll-loops")
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define int long long
+#define fi first
+#define se second
+#define nl cout << '\n';
+#define sz(x) ((int)x.size())
+#define all(a) (a).begin(), (a).end()
+#define inpi(a) int a; cin >> a;
+#define inpvi(a, n) vi a(n); for(auto &i : a) cin >> i;
+#define inpvvi(a, x, y) vvi a(x, vi(y)); for(auto &i : a) for(auto &j : i) cin >> j;
+#define YES do{cout << "YES";return;}while(0);
+#define NO  do{cout << "NO ";return;}while(0);
+#define rea(x)  do{cout << x;return;}while(0);
+
+struct custom_hash
+{
+    static uint64_t splitmix64(uint64_t x)
+    {
+        x += 0x9e3779b97f4a7c15;
+        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
+        x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
+        return x ^ (x >> 31);
+    }
+    size_t operator()(uint64_t x) const {
+        static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
+        return splitmix64(x + FIXED_RANDOM);
+    }
+};
+
+using pii = pair<int, int>;
+using vi = vector<int>;
+using vvi = vector<vector<int>>;
+using vb = vector<bool>;
+using vs = vector<string>;
+using mii = map<int, int>;
+using hashset = unordered_set<int, custom_hash>;
+using hashmap = unordered_map <int, int, custom_hash>;
+
+inline int iceil(int x, int y){return (x + y - 1) / y;}
+inline bool amax(int &a, int b){bool r = a < b;a = max(a,b);return r;}
+inline bool amin(int &a, int b){bool r = a > b;a = min(a,b);return r;}
+
+constexpr int inf = numeric_limits<int>::max();
+
+struct Node
+{
+    int x,y;
+    bool m;
+    Node(int xx,int yy, bool mm)
+    {
+        x = xx;
+        y = yy;
+        m = mm;
+    }
+    bool operator< (const Node& other) const
+    {
+        return m < other.m;
+    }
+};
+
+using pin = pair<int,Node>;
+
+void solve()
+{
+    int xg,yg,xm,ym;
+    cin >> xg >> yg >> xm >> ym;
+    set<pii> ok;
+    priority_queue<pin, vector<pin>, greater<pin>> pq;
+    pq.push({2, Node(xg,yg,0)});
+    pq.push({7, Node(xm,ym,1)});
+    ok.insert({xg,yg});
+    ok.insert({xm,ym});
+    int dx[8] = {0, 1, 0, -1};
+    int dy[8] = {1, 0, -1, 0};
+    auto adj = [&](int x,int y)
+    {
+        vector<pii> ans;
+        for(int i = 0; i < 8; ++i)
+        {
+            ans.push_back({x+dx[i], y+dy[i]});
+        }
+        return ans;
+    };
+    int ans = 1;
+    int cnt = 1;
+    while(cnt > 0)
+    {
+        //cerr << cnt << '\n';
+        auto [c, v] = pq.top();
+        pq.pop();
+        if(v.m) --cnt;
+        for(auto p : adj(v.x,v.y))
+        {
+            if(ok.find(p) == ok.end())
+            {
+                ok.insert(p);
+                if(v.m)
+                {
+                    ++cnt;
+                    ++ans;
+                    pq.push({c+7, Node(p.fi, p.se, v.m)});
+                }
+                else
+                {
+                    pq.push({c+2, Node(p.fi, p.se, v.m)});
+                }
+            }
+        }
+    }
+    cout << ans;
+}
+
+signed main()
+{
+    ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+    inpi(t);
+
+    while(t--)
+    {
+        solve();
+        cout << '\n';
+    }
+}
+
+
+

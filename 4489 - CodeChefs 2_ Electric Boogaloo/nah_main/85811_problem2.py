@@ -1,0 +1,32 @@
+T = int(input())
+for _ in range(T):
+    N, P, R, K = map(int, input().split())
+    energy_arr = list(map(int, input().split()))
+    
+    running_P = P
+    defeated = 0
+    regen = 0
+    possible = True
+    
+    for energy in energy_arr:
+        while running_P < energy and regen > 0:
+            running_P += R
+            regen -= 1
+        
+        running_P -= energy
+        
+        if running_P < 0:
+            possible = False
+            break
+            
+        defeated += 1
+        if defeated % K == 0:
+            regen += 1
+    
+    if possible:
+        print("nah i'd win")
+    else:
+        print("nah i'd lose")
+            
+        
+        

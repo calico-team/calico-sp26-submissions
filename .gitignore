@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Compiled output
+*.o
+*.out
+*.exe
+*.class
+*.pyc
+__pycache__/
+
+# Misc
+*.log
+.env
+rename_teams.py
+registrationid-teamid.csv
+registrationid-teamname.csv

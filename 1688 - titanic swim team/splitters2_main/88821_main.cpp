@@ -1,0 +1,109 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int T;
+    cin>>T;
+    while(T--) {
+        long long P;
+        int A, B;
+        string s;
+        cin>>s;
+        if((int)s.size()==3&&
+           isdigit(s[0])&&isdigit(s[1])&&isdigit(s[2])) {
+            P=s[0]-'0';
+            A=s[1]-'0';
+            B=s[2]-'0';
+        } else {
+            P=stoll(s);
+            cin>>A>>B;
+        }
+        vector<pair<int, int>> stages;
+        long long num=P;
+        long long den=1;
+        for(int i=0; i<A; i++) den*=2;
+        for(int i=0; i<B; i++) den*=3;
+        for(int i=0; i<A; i++) {
+            long long c=(num*2)/den;
+            stages.push_back({2, (int)c});
+            den/=2;
+            num=num-c*den;
+        }
+        for(int i=0; i<B; i++) {
+            long long c=(num*3)/den;
+            stages.push_back({3, (int)c});
+            den/=3;
+            num=num-c*den;
+        }
+        assert(num==0);
+        int K=(int)stages.size();
+        int N=5;
+        int M=2*K+1;
+        vector<string> g(N, string(M, '.'));
+        g[0][0]='v';
+        g[1][0]='v';
+        g[2][0]='>';
+        auto put_up_collect=[&](int c) {
+            g[1][c]='^';
+            g[0][c]='^';
+        };
+        auto put_down_collect=[&](int c) {
+            g[3][c]='v';
+            g[4][c]='v';
+        };
+        for(int i=0; i<K; i++) {
+            int col=1+2*i;
+            int m=stages[i].first;
+            int c=stages[i].second;
+            bool last=(i==K-1);
+            g[2][col]='S';
+            if(m==2) {
+                if(!last) {
+                    g[2][col+1]='>';
+                    if(c==0) {
+                        g[3][col]='X';
+                    } else {
+                        put_up_collect(col);
+                    }
+                } else {
+                    g[2][col+1]='X';
+                    if(c==0) {
+                        g[3][col]='X';
+                    } else {
+                        put_up_collect(col);
+                    }
+                }
+            } else {
+                if(!last) {
+                    g[2][col+1]='>';
+                    if(c==0) {
+                        g[1][col]='X';
+                        g[3][col]='X';
+                    } else if(c==1) {
+                        put_up_collect(col);
+                        g[3][col]='X';
+                    } else {
+                        put_up_collect(col);
+                        put_down_collect(col);
+                    }
+                } else {
+                    g[2][col+1]='X';
+                    if(c==0) {
+                        g[1][col]='X';
+                        g[3][col]='X';
+                    } else if(c==1) {
+                        put_up_collect(col);
+                        g[3][col]='X';
+                    } else {
+                        put_up_collect(col);
+                        put_down_collect(col);
+                    }
+                }
+            }
+        }
+        cout<<N<<' '<<M<<'\n';
+        for(auto &row:g) cout<<row<<'\n';
+    }
+    return 0;
+}

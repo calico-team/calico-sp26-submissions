@@ -1,0 +1,22 @@
+def solve(N: int, P: int, R: int, K: int, E: list[int]) -> str:
+    count = 0
+    for x in E:
+        P -= x
+        if (count%K)==0 and count!= 0:
+            P+=R
+        count +=1
+        if P<0:
+            return "nah i'd lose"
+    return "nah i'd win"
+
+
+def main() -> None:
+    T = int(input())
+    for _ in range(T):
+        N, P, R, K = map(int, input().split())
+        E = list(map(int, input().split()))
+        print(solve(N, P, R, K, E))
+
+
+if __name__ == "__main__":
+    main()

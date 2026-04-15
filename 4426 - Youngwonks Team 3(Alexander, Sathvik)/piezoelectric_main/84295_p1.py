@@ -1,0 +1,30 @@
+#problem 1
+
+def solve(L, W, E, R):
+    '''
+    Return the number of laps needed to charge the car (rounded up)
+
+    L: Length of car
+    W: Width of car
+    E: Amount of electricity to generate
+    R: Electricity generated per unit distance
+    '''
+
+    # YOUR CODE HERE
+    lapLength=2*W+2*L
+    ePerLap=lapLength*R
+    laps=E/ePerLap
+    return int(laps)
+
+def main():
+	T = int(input("number: "))
+	for _ in range(T):
+		temp = input("L,W,E,R: ").split()
+		L = int(temp[0])
+		W = int(temp[1])
+		E = int(temp[2])
+		R = int(temp[3])
+
+		print(solve(L, W, E, R))
+
+main()

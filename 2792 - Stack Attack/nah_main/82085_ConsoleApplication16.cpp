@@ -1,0 +1,51 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<set>
+#include<stack>
+#include<queue>
+#include<map>
+#include<string>
+#include<math.h>
+#include<iomanip>
+#include<deque>
+
+using namespace std;
+using ll = long long;
+using vll = vector<ll>;
+using vvll = vector<vll>;
+using pll = pair<ll, ll>;
+using vpll = vector<pll >;
+using vvpll = vector<vpll>;
+
+
+void solve() {
+	ll n, p, r, k;
+	cin >> n >> p >> r >> k;
+	vll arr(n);
+	for (ll i = 0; i < n; i++) {
+		cin >> arr[i];
+	}
+	for (ll i = 0; i < n; i++) {
+		p -= arr[i];
+		if (p < 0) {
+			cout << "nah i�d lose" << '\n';
+			return;
+		}
+		if (i % k == k - 1) {
+			p += r;
+		}
+	}
+	cout << "nah i�d win" << '\n';
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+
+	ll t = 1;
+	cin >> t;
+	while (t--) {
+		solve();
+	}
+}

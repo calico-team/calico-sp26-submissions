@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+string solve(int N, int P, int R, int K, vector<int>& E) {
+    int defeated = 0;
+    E.push_back(0);
+    for(int i = 0; i < N; i++) {
+        if(P < E[i]) {
+            return "nah i'd lose";
+        }
+        P -= E[i];
+        defeated++;
+        if(P < E[i+1] && defeated < K) {
+            return "nah i'd lose";
+        }
+        else if(P < E[i+1] && defeated >= K) {
+            P+=R;
+            defeated = 0;
+        }
+    }
+    return "nah i'd win";
+}
+
+int main() {
+    int T;
+    cin >> T;
+    for (int i = 0; i < T; i++) {
+        int N, P, R, K;
+		cin >> N >> P >> R >> K;
+		vector<int> E(N);
+		for (int j = 0; j < N; j++) {
+			cin >> E[j];
+		}
+        cout << solve(N, P, R, K, E) << '\n';
+    }
+}
