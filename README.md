@@ -1,6 +1,6 @@
 # CALICO Spring '26 Contestant Submissions
 
-This repository contains all contestant submissions from the CALICO Spring 2026.
+This repository contains all contestant submissions from CALICO Spring 2026.
 
 ## Structure
 
