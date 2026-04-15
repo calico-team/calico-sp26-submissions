@@ -37,7 +37,7 @@ submissions/
 - **8,226** source files
 - **Languages:** C++ (`.cpp`, `.cc`, `.c++`), Python (`.py`), Java (`.java`), Rust (`.rs`), C (`.c`)
 
-## Scoreboard
+## Scoreboard (PLACEMENTS ARE NOT FINAL)
 
 | Placement | Team Name | Submissions |
 |-----------|-----------|-------------|
@@ -353,7 +353,7 @@ submissions/
 | 310 | TabsDev | [4603 - TabsDev](submissions/4603%20-%20TabsDev) |
 | 311 | ZWZ | [4739 - ZWZ](submissions/4739%20-%20ZWZ) |
 | 312 | WHS K3 | [4790 - WHS K3](submissions/4790%20-%20WHS%20K3) |
-| 313 | ] | [1632 - ]](submissions/1632%20-%20%5D) |
+| 313 | ] | [1632 - \]](submissions/1632%20-%20%5D) |
 | 314 | The Lancers | [3038 - The Lancers](submissions/3038%20-%20The%20Lancers) |
 | 315 | (._.) | [4399 - (._.)](submissions/4399%20-%20%28._.%29) |
 | 316 | Gravitas | [2914 - Gravitas](submissions/2914%20-%20Gravitas) |
@@ -558,7 +558,3 @@ submissions/
 | - | wlx | [4627 - wlx](submissions/4627%20-%20wlx) |
 | - | wolf | [3044 - wolf](submissions/3044%20-%20wolf) |
 | - | 萌鸡小队 | [4645 - 萌鸡小队](submissions/4645%20-%20%E8%90%8C%E9%B8%A1%E5%B0%8F%E9%98%9F) |
-
-## License
-
-These submissions are the work of their respective authors.
