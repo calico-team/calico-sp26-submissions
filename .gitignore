@@ -29,3 +29,7 @@ scoreboard.html
 scoreboard_public.html
 all_submissions.json
 rename_with_time.py
+excluded_submissions.json
+rename_out.txt
+format_md.py
+scratch.py
